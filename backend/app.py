@@ -19,7 +19,19 @@ load_dotenv()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("JWT_SECRET")
 # Allow all origins for simplicity. In production, lock this down.
-CORS(app, resources={r"/*": {"origins": "*"}}) 
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "https://bro-bs1zhp3y4-theimma1s-projects.vercel.app",
+            "https://*.vercel.app",  # Allow all Vercel preview deployments
+            "http://localhost:5500",
+            "http://127.0.0.1:5500"
+        ],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
+    }
+})
 socketio = SocketIO(app, async_mode='eventlet', cors_allowed_origins="*")
 
 # === ERROR HANDLING ===

@@ -1,14 +1,15 @@
 // --- CONFIGURATION ---
 // !! REPLACE THESE VALUES BEFORE DEPLOYING !!
-const API_BASE_URL = "FlyV1 fm2_lJPECAAAAAAACxURxBCaDZx5M5OOfEt//yjrMXPawrVodHRwczovL2FwaS5mbHkuaW8vdjGWAJLOABSUHx8Lk7lodHRwczovL2FwaS5mbHkuaW8vYWFhL3YxxDwEh4EPkMShFmKse97+oKoqejotCkV5TCXEUpoJUK1q1NTfggO5s4jxRmTviui6hb/HgpgBTcm/jcgIg8nETmIBBHJWqnuvN1v2QxH+0RIwaUg5nGkEdHgWMV2wNwLspELBPDZIZtk33j3QFD3F166yhAefyMyOWYALie6QWyqeidib8eOwO5xFRzm0oA2SlAORgc4AsOy7HwWRgqdidWlsZGVyH6J3Zx8BxCCAYhgrL7De8VqGSWfgeiibo1BPjOzrmVtT5laCZKtB2g==,fm2_lJPETmIBBHJWqnuvN1v2QxH+0RIwaUg5nGkEdHgWMV2wNwLspELBPDZIZtk33j3QFD3F166yhAefyMyOWYALie6QWyqeidib8eOwO5xFRzm0oMQQvS2v4Pamm5nr6TYgZsZAZMO5aHR0cHM6Ly9hcGkuZmx5LmlvL2FhYS92MZgEks5pGi/+znvmMxwXzgATxCIKkc4AE8QiDMQQtppYSRenGKT3RhqhuBz5QcQglaGs6cIXO4/ES0P0YwIMvFhouQZdmyjpePC33wL4+IQ="; // Your Fly.io app URL
+const API_BASE_URL = "https://bro-app-backend.fly.dev"; // Your Fly.io backend URL
 const SUPABASE_URL = "https://mjjhatzxqbrqyxplgdck.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1qamhhdHp4cWJycXl4cGxnZGNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMyOTA0ODgsImV4cCI6MjA3ODg2NjQ4OH0.RS_iVB2YnFg5PJsLQznM5UZk2zN_IIbL_avGgXXCIbA";
 // !! ----------------- !!
 
+// Initialize Socket.IO connection
 const socket = io(API_BASE_URL);
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-
+// Initialize Supabase client
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // --- API Wrapper ---
 class API {
@@ -79,7 +80,7 @@ class API {
         localStorage.removeItem('bro_token');
         localStorage.removeItem('bro_username');
         this.token = null;
-        window.location.href = '/';
+        window.location.href = 'index.html';
     }
 
     isLoggedIn() {
