@@ -18,20 +18,23 @@ load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("JWT_SECRET")
-# Allow all origins for simplicity. In production, lock this down.
+
+# UPDATED CORS Configuration - Allow your Vercel frontend
 CORS(app, resources={
     r"/*": {
         "origins": [
             "https://bro-bs1zhp3y4-theimma1s-projects.vercel.app",
-            "https://*.vercel.app",  # Allow all Vercel preview deployments
+            "https://*.vercel.app",  # Allows all Vercel preview deployments
             "http://localhost:5500",
-            "http://127.0.0.1:5500"
+            "http://127.0.0.1:5500",
+            "http://localhost:3000"
         ],
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"],
         "supports_credentials": True
     }
 })
+
 socketio = SocketIO(app, async_mode='eventlet', cors_allowed_origins="*")
 
 # === ERROR HANDLING ===
@@ -182,7 +185,7 @@ def create_profile_invite(current_user, current_user_id, **kwargs):
         
         profile_id = res.data[0]['id']
         # This link would be sent via email/SMS (out of scope)
-        invite_link = f"bro-app-one.vercel.app"
+        invite_link = f"https://bro-bs1zhp3y4-theimma1s-projects.vercel.app/approve.html?token={invite_token}"
         
         return jsonify({
             "message": "Profile invite created.",
@@ -301,7 +304,7 @@ def create_redeem_session(profile_id, current_user, current_user_id, **kwargs):
         if not res.data:
             return jsonify({"error": "Failed to create redeem session", "details": str(res.error)}), 500
             
-        redeem_link = f"bro-app-one.vercel.app"
+        redeem_link = f"https://bro-bs1zhp3y4-theimma1s-projects.vercel.app/redeem.html?token={session_token}"
         
         return jsonify({
             "message": "Redeem session created.",
