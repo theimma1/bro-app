@@ -79,7 +79,7 @@ class API {
         localStorage.removeItem('bro_token');
         localStorage.removeItem('bro_username');
         this.token = null;
-        window.location.href = 'auth.html';
+        window.location.href = '/';
     }
 
     isLoggedIn() {
