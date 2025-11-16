@@ -1,0 +1,22 @@
+# --- Secrets (CRITICAL) ---
+# Never commit environment variables
+.env
+*.env
+
+# --- Python ---
+# Virtual environments
+.venv/
+venv/
+
+# Compiled Python files
+*.pyc
+
+# Python cache
+__pycache__/
+
+# --- OS / Editor ---
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
