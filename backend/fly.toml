@@ -30,3 +30,6 @@ primary_region = 'dfw'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256
+# Add this to the end of fly.toml
+[swap]
+  size_mb = 512
