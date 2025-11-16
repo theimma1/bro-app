@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Call - BRO</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="container">
+            <a href="dashboard.html" class="logo">BRO</a>
+            <div class="nav-links">
+                <button id="leave-btn" class="btn btn-danger">Leave Call</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="video-call-container">
+        <div id="woman-video-container">
+            <video id="remote-video" autoplay playsinline></video>
+            <h3 id="call-status">Connecting to room...</h3>
+        </div>
+        <video id="local-video" autoplay playsinline muted></video>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/webrtc.js"></script>
+    <script src="js/redeem.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BRO</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="container">
+            <a href="dashboard.html" class="logo">BRO</a>
+            <div class="nav-links">
+                <span id="nav-username"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Approved Profiles</h1>
+        <p>Browse consented profiles. Remember to be respectful.</p>
+        
+        <div class="profile-grid" id="profile-grid">
+            <p>Loading profiles...</p>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

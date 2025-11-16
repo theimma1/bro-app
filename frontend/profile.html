@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - BRO</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="container">
+            <a href="dashboard.html" class="logo">BRO</a>
+            <div class="nav-links">
+                <span id="nav-username"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="profile-container">
+        <section class="profile-header">
+            <div class="profile-photos" id="profile-photos">
+                </div>
+            <div class="profile-info">
+                <h1 id="profile-name">Loading...</h1>
+                <p class="profile-info-bio" id="profile-bio"></p>
+                
+                <h3>Behavioral Averages</h3>
+                <div class="ratings-summary" id="ratings-summary">
+                    </div>
+            </div>
+        </section>
+
+        <section class="experiences-section">
+            <h2>Experiences</h2>
+            <div id="experiences-list">
+                </div>
+        </section>
+
+        <section class="forms-section">
+            <h2>Submit Your Feedback</h2>
+            <div style="display: flex; gap: 2rem;">
+                <form id="experience-form" class="form-container" style="flex: 1;">
+                    <h3>Write an Experience</h3>
+                    <div class="form-group">
+                        <label for="experience-text">Your experience (no doxxing, no appearance ratings):</label>
+                        <textarea id="experience-text" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Submit Experience</button>
+                    <p id="experience-error" class="error-message"></p>
+                </form>
+
+                <form id="rating-form" class="form-container" style="flex: 1;">
+                    <h3>Submit/Update Rating</h3>
+                    <div class="rating-form-grid">
+                        <div class="form-group">
+                            <label for="rating-honesty">Honesty (0-5)</label>
+                            <input type="number" id="rating-honesty" min="0" max="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating-communication">Communication (0-5)</label>
+                            <input type="number" id="rating-communication" min="0" max="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating-accountability">Accountability (0-5)</label>
+                            <input type="number" id="rating-accountability" min="0" max="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating-consistency">Consistency (0-5)</label>
+                            <input type="number" id="rating-consistency" min="0" max="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating-drama_level">Drama Level (0-5)</label>
+                            <input type="number" id="rating-drama_level" min="0" max="5" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Rating</button>
+                    <p id="rating-error" class="error-message"></p>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

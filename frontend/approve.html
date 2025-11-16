@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Your Profile - BRO</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="approve-view" class="form-container">
+            <h1>Create Your Profile</h1>
+            <p>Welcome! A user has created a placeholder profile for you. To make it visible, you must provide your details and consent by submitting this form.</p>
+            <p><strong>Your profile will NOT be public until you submit this form AND it is approved by a moderator.</strong></p>
+            
+            <form id="approve-form">
+                <div class="form-group">
+                    <label for="approve-name">Display Name</label>
+                    <input type="text" id="approve-name" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="approve-bio">Your Bio</label>
+                    <textarea id="approve-bio" required placeholder="Tell men what you'd like them to know."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="approve-photos">Upload 1-3 Photos</label>
+                    <input type="file" id="approve-photos" multiple accept="image/png, image/jpeg">
+                    <p id="upload-status" style="font-size: 0.9rem; color: var(--text-muted);"></p>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submit-approval-btn">Consent & Submit for Review</button>
+                <p id="approve-error" class="error-message"></s-p>
+            </form>
+        </div>
+        <div id="loading-view" style="display: none;">
+            <h2>Validating your link...</h2>
+        </div>
+        <div id="message-view" class="form-container" style="display: none;">
+            <h2 id="message-title"></h2>
+            <p id="message-text"></p>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/approve.js"></script>
+</body>
+</html>
