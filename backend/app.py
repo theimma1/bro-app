@@ -170,7 +170,7 @@ def create_profile_invite(current_user, current_user_id, **kwargs):
         
         profile_id = res.data[0]['id']
         # This link would be sent via email/SMS (out of scope)
-        invite_link = f"https://YOUR_VERCEL_APP_URL/approve.html?token={invite_token}"
+        invite_link = f"bro-app-one.vercel.app"
         
         return jsonify({
             "message": "Profile invite created.",
@@ -289,7 +289,7 @@ def create_redeem_session(profile_id, current_user, current_user_id, **kwargs):
         if not res.data:
             return jsonify({"error": "Failed to create redeem session", "details": str(res.error)}), 500
             
-        redeem_link = f"https://YOUR_VERCEL_APP_URL/redeem.html?token={session_token}"
+        redeem_link = f"bro-app-one.vercel.app"
         
         return jsonify({
             "message": "Redeem session created.",
