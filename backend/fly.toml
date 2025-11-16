@@ -7,7 +7,9 @@ app = 'bro-app-backend'
 primary_region = 'dfw'
 
 [build]
-  builder = 'paketobuildpacks/builder:base'
+  # builder = "paketobuildpacks/builder:base" # Paketo can build a python app
+  # OR use the Dockerfile
+  dockerfile = "Dockerfile"
 
 [http_service]
   internal_port = 8080
