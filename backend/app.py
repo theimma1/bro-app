@@ -19,14 +19,14 @@ load_dotenv()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("JWT_SECRET")
 
-# UPDATED CORS Configuration - Add your NEW Vercel URL
+# Update app.py - lines ~22-45
 CORS(app, resources={
     r"/*": {
         "origins": [
-            "https://bro-app-one.vercel.app",  # YOUR NEW URL
+            "https://bro-app-one.vercel.app",
+            "https://bro-mppa1gak4-theimma1s-projects.vercel.app",  # ADD THIS
             "https://bro-bs1zhp3y4-theimma1s-projects.vercel.app",
             "https://bro-rd4p1scqz-theimma1s-projects.vercel.app",
-            "https://*.vercel.app",
             "http://localhost:5500",
             "http://127.0.0.1:5500",
             "http://localhost:3000"
@@ -40,10 +40,10 @@ CORS(app, resources={
 socketio = SocketIO(
     app, 
     cors_allowed_origins=[
-        "https://bro-app-one.vercel.app",  # YOUR NEW URL
+        "https://bro-app-one.vercel.app",
+        "https://bro-mppa1gak4-theimma1s-projects.vercel.app",  # ADD THIS
         "https://bro-bs1zhp3y4-theimma1s-projects.vercel.app",
         "https://bro-rd4p1scqz-theimma1s-projects.vercel.app",
-        "https://*.vercel.app",
         "http://localhost:5500",
         "http://127.0.0.1:5500",
         "http://localhost:3000"
@@ -52,6 +52,7 @@ socketio = SocketIO(
     logger=True,
     engineio_logger=True
 )
+
 
 
 # === ERROR HANDLING ===
