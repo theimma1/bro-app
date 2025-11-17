@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Path Analyzer</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #f4f4f4; }
+        h1 { margin-bottom: 20px; }
+        pre { background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ccc; }
+        .success { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+    </style>
+    <!-- Test 1: Relative Path (What *should* work) -->
+    <link rel="stylesheet" href="css/main.css" onload="report('Test 1: Relative CSS (css/main.css)', 'Success')" onerror="report('Test 1: Relative CSS (css/main.css)', 'FAIL')">
+    
+    <!-- Test 2: Absolute Path (What *should not* work) -->
+    <link rel="stylesheet" href="/css/main.css" onload="report('Test 2: Absolute CSS (/css/main.css)', 'Success')" onerror="report('Test 2: Absolute CSS (/css/main.css)', 'FAIL')">
+</head>
+<body>
+    <h1>Deployment Path Analyzer</h1>
+    <p>This page is testing your Vercel deployment paths. Wait 3 seconds for results...</p>
+    <pre id="results">Running tests...
+</pre>
+
+    <!-- Test 3: Relative Path (What *should* work) -->
+    <script src="js/api.js" onload="report('Test 3: Relative JS (js/api.js)', 'Success')" onerror="report('Test 3: Relative JS (js/api.js)', 'FAIL')"></script>
+    
+    <!-- Test 4: Absolute Path (What *should not* work) -->
+    <script src="/js/api.js" onload="report('Test 4: Absolute JS (/js/api.js)', 'Success')" onerror="report('Test 4: Absolute JS (/js/api.js)', 'FAIL')"></script>
+
+    <script>
+        const results = document.getElementById('results');
+        function report(test, status) {
+            const el = document.createElement('div');
+            el.innerHTML = `${test}: <span class="${status.toLowerCase()}">${status}</span>`;
+            results.appendChild(el);
+        }
+    </script>
+</body>
+</html>
